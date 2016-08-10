@@ -640,7 +640,7 @@ echo "</br>INFO: recordIosReviews App Name: ".$appName;
 echo "</br>INFO: recordIosReviews Author: ".$author;
 echo "</br>---------------------------------------------";
 		if ($maxID<$commentid) {
-		insertStoreComment('ios',$commentid,$author,$title,$comment,$appName);
+		insertStoreComment('ios',$commentid,$author,$title,$comment,$appName,$rating);
 echo "</br>INFO: recording on DB, counter: ".$x ;
 echo "</br>INFO: to db app : ".$appName;
 echo "</br>INFO: to db yorum : ".$comment;
@@ -771,7 +771,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 }
 
-function insertStoreComment($store,$id,$user,$title,$comment,$appName){
+function insertStoreComment($store,$id,$user,$title,$comment,$appName,$rating){
 echo "<br> inser app name: ".$appName;
 $servername='46.101.113.44';
 $username='appony'; 
@@ -781,7 +781,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
-	$sql = "INSERT INTO appony.`comments` (`store`, `comment_id`, `user`,`title`,`comment`,`appname`) VALUES ('".$store."', '".$id."', '".$user."','".$title."','".$comment."','".$appName."');";
+	$sql = "INSERT INTO appony.`comments` (`store`, `comment_id`, `user`,`title`,`comment`,`appname`,`rating`) VALUES ('".$store."', '".$id."', '".$user."','".$title."','".$comment."','".$appName."','".$rating."');";
 
 	if ($conn->query($sql) === TRUE) {
     	echo "</br>INFO: New record created successfully";
