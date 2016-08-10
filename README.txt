@@ -11,29 +11,3 @@ Credits:
 		Chart.Js (chartjs.com)
 		Font Awesome (fortawesome.github.com/Font-Awesome)
 		Itunes lookup&search API
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		CSS3 Pie (css3pie.com)
-		Respond.js (j.mp/respondjs)
-		jquery.dropotron (@ajlkn)
-		Skel (skel.io)
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		CSS3 Pie (css3pie.com)
-		Respond.js (j.mp/respondjs)
-		jquery.dropotron (@ajlkn)
-		Skel (skel.io)
