@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT appid,appname FROM app_list";
+$sql = "SELECT appid,appname FROM app_list where isTurkcell=1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
