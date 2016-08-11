@@ -3,6 +3,7 @@ Appony, Turkcell uygulamaların store puan ve yorumlarını takip etmek, puan az
 
 Continious Integration aracı olarak Jenkins tercih edilmiştir. Kodlar github üzerinde appony repository'de tutulmaktdır.
 
+
 #Tesekkurler / Credits :
 		html5up.net / Design: Verti
                 jQuery (jquery.com)
