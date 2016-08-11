@@ -19,6 +19,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require("funcs/dbFunctions.php");
 
+$appName1=$_GET['app1'];
+$appName2=$_GET['app2'];
+//echo "INFO - app: ".$appName;
+
 echo "<div id=\"page-wrapper\">\n"; 
 echo "\n"; 
 echo "			<!-- Header -->\n"; 
@@ -34,7 +38,7 @@ echo "\n";
 echo "						<!-- Nav -->\n"; 
 echo "							<nav id=\"nav\">\n"; 
 echo "								<ul>\n"; 
-echo "									<li class=\"current\"><a href=\"index.php\">Anasayfa</a></li>\n"; 
+echo "									<li class=\"current\"><a href=\"index.html\">Anasayfa</a></li>\n"; 
 echo "									<li class=\"current\">\n"; 
 echo "										<a href=\"#\">Turkcell Apps</a>\n"; 
 echo "										<ul>\n"; 
@@ -47,7 +51,7 @@ echo "											<li><a href=\"details.php?app=hesabim\">Hesabım</a></li>\n";
 echo "											<li><a href=\"details.php?app=platinum\">Platinum</a></li>\n"; 
 echo "											<li><a href=\"details.php?app=gnc\">Gnctrkcll</a></li>\n"; 
 echo "										</ul>\n"; 
-echo "									</li>\n";
+echo "									</li>\n"; 
 echo "									<li class=\"current\">\n"; 
 echo "										<a href=\"#\">Benchmarking</a>\n"; 
 echo "										<ul>\n"; 
@@ -63,134 +67,55 @@ echo "\n";
 echo "					</header>\n"; 
 echo "				</div>\n"; 
 echo "\n"; 
-echo "			<!-- Banner -->\n"; 
-echo "				<div id=\"banner-wrapper\">\n"; 
-echo "					<div id=\"banner\" class=\"box container\">\n"; 
-echo "						<div class=\"row\">\n"; 
-echo "							<div class=\"7u 12u(medium)\">\n"; 
-echo "								<h2></h2>\n"; 
-echo "								<p>Turkcell Uygulamaları Store puan/yorum takip aracı</p>\n"; 
-echo "							</div>\n"; 
-echo "							<div class=\"5u 12u(medium)\">\n"; 
-echo "								<ul>\n"; 
-echo "									<li><a href=\"apps.php\" class=\"button big icon fa-arrow-circle-right\">Uygulamalar</a></li>\n"; 
-echo "									<li><a href=\"#content\" class=\"button alt big icon fa-question-circle\">Ne işe yarar</a></li>\n"; 
-echo "								</ul>\n"; 
-echo "							</div>\n"; 
-echo "						</div>\n"; 
-echo "					</div>\n"; 
-echo "				</div>\n"; 
-echo "\n"; 
+
+
 echo "			<!-- Features -->\n"; 
-echo "				<div id=\"features-wrapper\">\n"; 
+echo "				<div id=\"apps-wrapper\">\n"; 
 echo "					<div class=\"container\">\n"; 
 echo "						<div class=\"row\" name=\"uygulamalar\">\n"; 
 echo "							<div class=\"4u 12u(medium)\">\n"; 
 echo "\n"; 
 echo "								<!-- Box -->\n"; 
-										getBoxDetails('fizy');
+										$imageURL=getImageUrl120($appName1);										
+echo 									'<p><center><img src="'.$imageURL.' " ></center></p>';
+										$imageURL2=getImageUrl120($appName2);										
+echo 									'<p><center><img src="'.$imageURL2.' "></center></p>';
 echo "\n"; 
 echo "							</div>\n"; 
-echo "							<div class=\"4u 12u(medium)\">\n"; 
+echo "							<div class=\"8u 12u(medium)\">\n"; 
 echo "\n"; 
 echo "								<!-- Box -->\n"; 
-									getBoxDetails('bip');
-echo "\n"; 
-echo "							</div>\n"; 
-echo "							<div class=\"4u 12u(medium)\">\n"; 
+									getBoxDetailsMin($appName1);
 echo "\n"; 
 echo "								<!-- Box -->\n"; 
-									getBoxDetails('depo');
+									getBoxDetailsMin2($appName2);
 echo "\n"; 
 echo "							</div>\n"; 
 echo "						</div>\n"; 
 echo "					</div>\n"; 
-echo "				</div>\n"; 
+echo "				</div></br>\n"; 
 echo "\n"; 
 
 
-echo "\n"; 
-echo "			<!-- Features -->\n"; 
-echo "				<div id=\"features-wrapper\">\n"; 
-echo "					<div class=\"container\">\n"; 
-echo "						<div class=\"row\" name=\"uygulamalar\">\n"; 
-echo "							<div class=\"4u 12u(medium)\">\n"; 
-echo "\n"; 
-echo "								<!-- Box -->\n"; 
-									getBoxDetails('hesabim');
-echo "\n"; 
-echo "							</div>\n"; 
-echo "							<div class=\"4u 12u(medium)\">\n"; 
-echo "\n"; 
-echo "								<!-- Box -->\n";
-									getBoxDetails('akademi');
-echo "\n"; 
-echo "							</div>\n"; 
-echo "							<div class=\"4u 12u(medium)\">\n"; 
-echo "\n"; 
-echo "								<!-- Box -->\n"; 
-									getBoxDetails('RBT');
-echo "\n"; 
-echo "							</div>\n"; 
-echo "						</div>\n"; 
-echo "					</div>\n"; 
-echo "				</div>\n"; 
-echo "\n"; 
-
-
-
-
-echo "			<!-- Main -->\n"; 
-echo "				<div id=\"main-wrapper\">\n"; 
-echo "					<div class=\"container\">\n"; 
-echo "						<div class=\"row 200%\">\n"; 
-echo "							<div class=\"4u 12u(medium)\">\n"; 
-echo "\n"; 
-echo "								<!-- Sidebar -->\n"; 
-echo "									<div id=\"sidebar\">\n"; 
-echo "										<section class=\"widget thumbnails\">\n"; 
-echo "											<h3>Kullanılan teknolojiler</h3>\n"; 
-echo "											<div class=\"grid\">\n"; 
-echo "												<div class=\"row 50%\">\n"; 
-echo "													<div class=\"6u\"><a href=\"#\" class=\"image fit\"><img src=\"https://storage.googleapis.com/static.ianlewis.org/prod/img/docker/large_v-trans.png\" alt=\"\" /></a></div>\n"; 
-echo "													<div class=\"6u\"><a href=\"#\" class=\"image fit\"><img src=\"https://blog.rosehosting.com/blog/wp-content/uploads/2016/03/build-nginx-with-pagespeed-module.png\" alt=\"\" /></a></div>\n"; 
-echo "													<div class=\"6u\"><a href=\"#\" class=\"image fit\"><img src=\"http://image.flaticon.com/icons/png/512/25/25231.png\" alt=\"\" /></a></div>\n"; 
-echo "													<div class=\"6u\"><a href=\"#\" class=\"image fit\"><img src=\"https://www.ctl.io/knowledge-base/images/jenkins-stack-logo.png\" alt=\"\" /></a></div>\n"; 
-echo "												</div>\n"; 
-echo "											</div>\n"; 
-echo "										</section>\n"; 
-echo "									</div>\n"; 
-echo "\n"; 
-echo "							</div>\n"; 
-echo "							<div class=\"8u 12u(medium) important(medium)\">\n"; 
-echo "\n"; 
-echo "								<!-- Content -->\n"; 
-echo "									<div id=\"content\">\n"; 
-echo "										<section class=\"last\">\n"; 
-echo "											<h2>Nasıl geliştirdik, ne işe yarar?</h2>\n"; 
-echo "											<p><strong>Appony</strong>, Turkcell uygulamaların store puan ve yorumlarını takip etmek, puan azalış ve artışlarında alarm üretebilmek geliştirilmiş bir uygulamaladır. Pazardaki benzer uygulamalar ile Turkcell uygulamaları arasında kıyaslama (benchmarking) imkanı da sunar.</p><p>Uygulama cloud'dan alınan bir sanal sunucu üzerinde; docker kullanılarak oluşturulmuş appony container'inda çalışmaktadır. \nNginx web sunucusu üzerinde Itunes ve Google Play Store API'lar ile konuşabilen php tabanlı bir yazılımdır. \nTrend analizi için veriler mySQL üzerinde depolanmaktadır. Veritabanı da docker üzerinde bir imaj olarak çalıştırılmaktadır.\nKodlar github'da saklanmakta ve continuous integration aracı olarak Jenkins kullanılmaktadır.</p>\n"; 
-echo "										</section>\n"; 
-echo "									</div>\n";  
-echo "							</div>\n"; 
-echo "						</div>\n"; 
-echo "					</div>\n"; 
-echo "				</div>\n"; 
-echo "\n"; 
-echo "\n"; 
-echo "\n"; 
-echo "</br></br></br>\n"; 
-echo "\n"; 
 
 
 echo "			<!-- Graph IOS-->\n"; 
 echo "				<div id=\"banner-wrapper\">\n"; 
 echo "					<div id=\"banner\" class=\"box container\">\n"; 
-getIosAllTrend();
- 
+getBenchTrends($appName1,$appName2); 
 echo "					</div>\n"; 
 echo "				</div>\n"; 
 
 echo "</br></br></br>\n"; 
+
+
+
+echo "			<!-- Graph Android-->\n"; 
+echo "				<div id=\"banner-wrapper\">\n"; 
+echo "					<div id=\"banner\" class=\"box container\">\n"; 
+//getAndroidAllTrend();
+echo "					</div>\n"; 
+echo "				</div>\n"; 
 
 echo "			<!-- Footer -->\n"; 
 echo "				<div id=\"footer-wrapper\">\n"; 
@@ -248,6 +173,8 @@ echo "			<script src=\"assets/js/skel.min.js\"></script>\n";
 echo "			<script src=\"assets/js/util.js\"></script>\n"; 
 echo "			<!--[if lte IE 8]><script src=\"assets/js/ie/respond.min.js\"></script><![endif]-->\n"; 
 echo "			<script src=\"assets/js/main.js\"></script>\n";
+
+
 
 
 ?>

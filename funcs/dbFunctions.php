@@ -194,6 +194,35 @@ $fizyImageURL=$fizyJson->results[0]->artworkUrl512;
 }
 
 
+function getImageUrl120($appname){
+$servername='46.101.113.44';
+$username='appony'; 
+$password='appony1020';
+$dbname='appony';
+$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	} 
+	$sql = "select appid from appony.app_list a WHERE a.appname='".$appname."'";
+
+
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+    	$appIosID=$row["appid"];
+    }
+
+$fizyUrl='http://itunes.apple.com/lookup?id='.$appIosID.'&country=tr';
+$fizyGet = file_get_contents($fizyUrl);
+$fizyJson=json_decode($fizyGet);
+$fizyImageURL=$fizyJson->results[0]->artworkUrl100;
+
+	$conn->close();
+	return $fizyImageURL;
+}
+}
+
 
 
 
@@ -237,7 +266,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 	$sql = "select format(rating,5) rating,rater_num, format(date_format(rate_date,'%m'),'0') ay, format(date_format(rate_date,'%d'),'0') gun,
-			date_format(rate_date,'%Y') yil from appony.android_app_rating_history a WHERE a.app_name='".$appName."';";
+			date_format(rate_date,'%Y') yil from appony.android_app_rating_history a WHERE a.app_name='".$appName."' order by rate_date asc;";
 
 $result = $conn->query($sql);
 
@@ -309,7 +338,7 @@ $appIosID=getIosID($appName);
 
 	//echo "</br>apple ID: ".$appIosID;
 	$sql = "select rating,rater_num, format(date_format(rate_date,'%m'),'0') ay, format(date_format(rate_date,'%d'),'0') gun,
-			date_format(rate_date,'%Y') yil from appony.app_rating_history a WHERE a.app_id='".$appIosID."';";
+			date_format(rate_date,'%Y') yil from appony.app_rating_history a WHERE a.app_id='".$appIosID."' order by rate_date asc;";
 //echo "</br> SQL: ".$sql;
 $result = $conn->query($sql);
 
@@ -364,12 +393,29 @@ $AndroidRating=getAndroidRating($appName);
 $AndroidRaterNum=getAndroidRaterNum($appName);
 $ImageURL=getImageUrl($appName);
 
-echo "												<p><p><center><a class=\"button big icon fa-apple\">".$iosRating."</a>
-																			<a class=\"button big icon fa-android\">".$AndroidRating."</a>
+
+echo "												<p><p><center><a class=\"button3 big icon fa-apple\">".$iosRating."</a>
+																			<a class=\"button3 big icon fa-android\">".$AndroidRating."</a>
 																			</p></center> </p>\n"; 
 echo "											<p>".$appName." Apple Store'da <b>".$iosRaterNum." </b> , Google Play'de  <b>".$AndroidRaterNum."</b> kullanıcı tarafından değerlendirilmiştir </p>\n"; 
 
 }
+
+
+function getBoxDetailsMin2($appName){
+$iosRating=getIOSRating($appName);
+$iosRaterNum=getIOSRaterNum($appName);
+$AndroidRating=getAndroidRating($appName);
+$AndroidRaterNum=getAndroidRaterNum($appName);
+$ImageURL=getImageUrl($appName);
+
+echo "												<p><p><center><a class=\"button2 big icon fa-apple\">".$iosRating."</a>
+																			<a class=\"button2 big icon fa-android\">".$AndroidRating."</a>
+																			</p></center> </p>\n"; 
+echo "											<p>".$appName." Apple Store'da <b>".$iosRaterNum." </b> , Google Play'de  <b>".$AndroidRaterNum."</b> kullanıcı tarafından değerlendirilmiştir </p>\n"; 
+
+}
+
 
 
 function getIosAllTrend(){
@@ -656,7 +702,6 @@ echo "</br>INFO: to db ID : ".$commentid;
 
 
 function getStoreTrends($appName){
-
 $appleTrend=getIosTRend($appName);
 $androidTrend=getAndroidTRend($appName);
 echo "  <script type=\"text/javascript\">\n"; 
@@ -741,6 +786,118 @@ echo "  <div id=\"chartContainerIOS\" style=\"height: 300px; width: 95%;\">\n";
 echo "  </div>\n"; 
 
 }
+
+
+function getBenchTrends($appName1,$appName2){
+$appleTrend1=getIosTRend($appName1);
+$androidTrend1=getAndroidTRend($appName1);
+$appleTrend2=getIosTRend($appName2);
+$androidTrend2=getAndroidTRend($appName2);
+echo "  <script type=\"text/javascript\">\n"; 
+echo "  window.onload = function () {\n"; 
+echo "      var chartIOS = new CanvasJS.Chart(\"chartContainerIOS\",\n"; 
+echo "      {\n"; 
+echo "\n"; 
+echo "          title:{\n"; 
+echo "              text: \"".$appName1." vs ".$appName2." Store Ratings Trend\",\n"; 
+echo "              fontSize: 30\n"; 
+echo "          },\n"; 
+echo "                        animationEnabled: true,\n"; 
+echo "          axisX:{\n"; 
+echo "\n"; 
+echo "              gridColor: \"Yellow\",\n"; 
+echo "              tickColor: \"silver\",\n"; 
+echo "              valueFormatString: \"DD/MMM\"\n"; 
+echo "\n"; 
+echo "          },                        \n"; 
+echo "                        toolTip:{\n"; 
+echo "                          shared:true\n"; 
+echo "                        },\n"; 
+echo "          theme: \"theme1\",\n"; 
+echo "          axisY: {\n"; 
+echo "              gridColor: \"Silver\",\n"; 
+echo "              tickColor: \"silver\"\n"; 
+echo "          },\n"; 
+echo "          legend:{\n"; 
+echo "              verticalAlign: \"center\",\n"; 
+echo "              horizontalAlign: \"right\"\n"; 
+echo "          },\n"; 
+echo "          data: [\n"; 
+echo "          {        \n"; 
+echo "              type: \"line\",\n"; 
+echo "              showInLegend: true,\n"; 
+echo "              lineThickness: 2,\n"; 
+echo "              name: \"".$appName1." IOS\",\n"; 
+echo "              markerType: \"triangle\",\n"; 
+echo "              color: \"#0090c5\",\n"; 
+echo "              dataPoints: [\n"; 
+echo $appleTrend1;
+echo "              ]\n"; 
+echo "          },\n"; 
+echo "          {        \n"; 
+echo "              type: \"line\",\n"; 
+echo "              showInLegend: true,\n"; 
+echo "              name: \"".$appName1." Android\",\n"; 
+echo "              color: \"#0010c5\",\n"; 
+echo "              markerType: \"triangle\",\n"; 
+echo "              lineThickness: 2,\n"; 
+echo "\n"; 
+echo "              dataPoints: [\n"; 
+echo $androidTrend1;
+//  echo "              { x: new Date(2016,08,02), y: 510 },\n"; 
+//  echo "              { x: new Date(2016,08,03), y: 560 },\n"; 
+//  echo "              { x: new Date(2016,08,04), y: 540 },\n"; 
+// echo "               { x: new Date(2016,08,05), y: 558 }\n"; 
+echo "              ]\n"; 
+echo "          },\n"; 
+echo "          {        \n"; 
+echo "              type: \"line\",\n"; 
+echo "              showInLegend: true,\n"; 
+echo "              lineThickness: 1,\n"; 
+echo "              name: \"".$appName2." IOS\",\n"; 
+echo "              markerType: \"square\",\n"; 
+echo "              color: \"#FA8258\",\n"; 
+echo "              dataPoints: [\n"; 
+echo $appleTrend2;
+echo "              ]\n"; 
+echo "          },\n"; 
+echo "          {        \n"; 
+echo "              type: \"line\",\n"; 
+echo "              showInLegend: true,\n"; 
+echo "              lineThickness: 1,\n"; 
+echo "              name: \"".$appName2." Android\",\n"; 
+echo "              markerType: \"square\",\n"; 
+echo "              color: \"#8A0808\",\n"; 
+echo "              dataPoints: [\n"; 
+echo $androidTrend2;
+echo "              ]\n"; 
+echo "          }\n"; 
+echo "          \n"; 
+echo "          ],\n"; 
+echo "          legend:{\n"; 
+echo "            cursor:\"pointer\",\n"; 
+echo "            itemclick:function(e){\n"; 
+echo "              if (typeof(e.dataSeries.visible) === \"undefined\" || e.dataSeries.visible) {\n"; 
+echo "                  e.dataSeries.visible = false;\n"; 
+echo "              }\n"; 
+echo "              else{\n"; 
+echo "                e.dataSeries.visible = true;\n"; 
+echo "              }\n"; 
+echo "              chartIOS.render();\n"; 
+echo "            }\n"; 
+echo "          }\n"; 
+echo "      });\n"; 
+echo "\n"; 
+echo "chartIOS.render();\n"; 
+echo "}\n"; 
+echo "</script>\n"; 
+echo "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js\"></script>\n"; 
+echo "\n"; 
+echo "  <div id=\"chartContainerIOS\" style=\"height: 300px; width: 95%;\">\n"; 
+echo "  </div>\n"; 
+
+}
+
 
 function getMaxIosCommentID($appName){
 $servername='46.101.113.44';

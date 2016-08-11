@@ -1681,6 +1681,172 @@
 			padding: 0.8em 0.9em;
 		}
 
+	.button2 {
+		-moz-transition: background-color .25s ease-in-out;
+		-webkit-transition: background-color .25s ease-in-out;
+		-ms-transition: background-color .25s ease-in-out;
+		transition: background-color .25s ease-in-out;
+		-webkit-appearance: none;
+		position: relative;
+		display: inline-block;
+		background: #006000;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 6px;
+		font-weight: 800;
+		outline: 0;
+		border: 0;
+		cursor: pointer;
+		font-size: 1.35em;
+		padding: 0.6em 1.5em;
+	}
+
+		input[type="button2"].icon:before,
+		input[type="submit"].icon:before,
+		input[type="reset"].icon:before,
+		button2.icon:before,
+		.button2.icon:before {
+			position: relative;
+			margin-right: 0.5em;
+			top: 0.05em;
+		}
+
+		input[type="button2"]:hover,
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		button2:hover,
+		.button2:hover {
+			background: #10a0d5;
+		}
+
+		input[type="button2"]:active,
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		button2:active,
+		.button2:active {
+			background: #20b0e5;
+		}
+
+		input[type="button2"].alt,
+		input[type="submit"].alt,
+		input[type="reset"].alt,
+		button2.alt,
+		.button2.alt {
+			background: #f1f1f1;
+			background: rgba(0, 0, 0, 0.05);
+			color: #444;
+		}
+
+			input[type="button2"].alt:hover,
+			input[type="submit"].alt:hover,
+			input[type="reset"].alt:hover,
+			button2.alt:hover,
+			.button2.alt:hover {
+				background: #e8e8e8;
+				background: rgba(0, 0, 0, 0.085);
+			}
+
+			input[type="button2"].alt:active,
+			input[type="submit"].alt:active,
+			input[type="reset"].alt:active,
+			button2.alt:active,
+			.button2.alt:active {
+				background: #e4e4e4;
+				background: rgba(0, 0, 0, 0.15);
+			}
+
+		input[type="button2"].big,
+		input[type="submit"].big,
+		input[type="reset"].big,
+		button2.big,
+		.button2.big {
+			font-size: 2.25em;
+			padding: 0.8em 0.9em;
+		}
+
+.button3 {
+		-moz-transition: background-color .25s ease-in-out;
+		-webkit-transition: background-color .25s ease-in-out;
+		-ms-transition: background-color .25s ease-in-out;
+		transition: background-color .25s ease-in-out;
+		-webkit-appearance: none;
+		position: relative;
+		display: inline-block;
+		background: #0090c5;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 6px;
+		font-weight: 800;
+		outline: 0;
+		border: 0;
+		cursor: pointer;
+		font-size: 1.35em;
+		padding: 0.6em 1.5em;
+	}
+
+		input[type="button3"].icon:before,
+		input[type="submit"].icon:before,
+		input[type="reset"].icon:before,
+		button3.icon:before,
+		.button3.icon:before {
+			position: relative;
+			margin-right: 0.5em;
+			top: 0.05em;
+		}
+
+		input[type="button3"]:hover,
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		button3:hover,
+		.button3:hover {
+			background: #10a0d5;
+		}
+
+		input[type="button3"]:active,
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		button3:active,
+		.button3:active {
+			background: #20b0e5;
+		}
+
+		input[type="button3"].alt,
+		input[type="submit"].alt,
+		input[type="reset"].alt,
+		button3.alt,
+		.button3.alt {
+			background: #f1f1f1;
+			background: rgba(0, 0, 0, 0.05);
+			color: #444;
+		}
+
+			input[type="button3"].alt:hover,
+			input[type="submit"].alt:hover,
+			input[type="reset"].alt:hover,
+			button3.alt:hover,
+			.button3.alt:hover {
+				background: #e8e8e8;
+				background: rgba(0, 0, 0, 0.085);
+			}
+
+			input[type="button3"].alt:active,
+			input[type="submit"].alt:active,
+			input[type="reset"].alt:active,
+			button3.alt:active,
+			.button3.alt:active {
+				background: #e4e4e4;
+				background: rgba(0, 0, 0, 0.15);
+			}
+
+		input[type="button3"].big,
+		input[type="submit"].big,
+		input[type="reset"].big,
+		button3.big,
+		.button3.big {
+			font-size: 2.25em;
+			padding: 0.8em 0.9em;
+		}		
+
 /* List */
 
 	ul.default {
