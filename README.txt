@@ -14,3 +14,4 @@ Continious Integration aracı olarak Jenkins tercih edilmiştir. Kodlar github �
 		Chart.Js (chartjs.com)
 		Font Awesome (fortawesome.github.com/Font-Awesome)
 		Itunes lookup&search API
+		
