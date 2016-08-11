@@ -893,7 +893,7 @@ echo "}\n";
 echo "</script>\n"; 
 echo "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js\"></script>\n"; 
 echo "\n"; 
-echo "  <div id=\"chartContainerIOS\" style=\"height: 300px; width: 95%;\">\n"; 
+echo "  <div id=\"chartContainerIOS\" style=\"height: 400px; width: 95%;\">\n"; 
 echo "  </div>\n"; 
 
 }
