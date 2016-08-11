@@ -5,7 +5,7 @@ Continious Integration aracı olarak Jenkins tercih edilmiştir. Kodlar github �
 
 
 
-Tesekkurler / Credits :
+#Tesekkurler / Credits :
 		html5up.net / Design: Verti
                 jQuery (jquery.com)
 		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
