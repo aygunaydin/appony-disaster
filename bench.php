@@ -99,7 +99,7 @@ echo "\n";
 
 
 
-echo "			<!-- Graph IOS-->\n"; 
+echo "			<!-- Graph Benchmark-->\n"; 
 echo "				<div id=\"banner-wrapper\">\n"; 
 echo "					<div id=\"banner\" class=\"box container\">\n"; 
 getBenchTrends($appName1,$appName2); 
@@ -108,14 +108,32 @@ echo "				</div>\n";
 
 echo "</br></br></br>\n"; 
 
-
+echo "									<section class=\"box feature\">\n"; 
+echo "<h2 style\"color:#00FF00;\"><center>Son 5 App Store Yorumu</center></h2>";
+echo "</section>";
 
 echo "			<!-- Graph Android-->\n"; 
-echo "				<div id=\"banner-wrapper\">\n"; 
-echo "					<div id=\"banner\" class=\"box container\">\n"; 
-//getAndroidAllTrend();
+echo "			<!-- Features -->\n"; 
+echo "				<div id=\"features-wrapper\">\n"; 
+echo "					<div class=\"container\">\n"; 
+echo "						<div class=\"row\" name=\"uygulamalar\">\n"; 
+echo "							<div class=\"6u 12u(medium)\">\n"; 
+echo "\n"; 
+echo "								<!-- Box -->\n"; 
+							getIosReviewsMin($appName1);
+echo "\n"; 
+echo "							</div>\n"; 
+echo "							<div class=\"6u 12u(medium)\">\n"; 
+echo "\n"; 
+echo "								<!-- Box -->\n";
+							getIosReviewsMin($appName2);
+
+echo "\n"; 
+echo "							</div>\n"; 
+echo "						</div>\n"; 
 echo "					</div>\n"; 
 echo "				</div>\n"; 
+echo "\n"; 
 
 echo "			<!-- Footer -->\n"; 
 echo "				<div id=\"footer-wrapper\">\n"; 

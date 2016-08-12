@@ -1007,6 +1007,58 @@ echo "				</div></br>\n";
 }
 
 
+function getIosReviewsMin($appName){
+$servername='46.101.113.44';
+$username='appony'; 
+$password='appony1020';
+$dbname='appony';
+$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	} 
+	$sql = "select appid from appony.app_list a WHERE a.appname='".$appName."'";
+
+
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+    	$appIosID=$row["appid"];
+    }
+
+    $conn->close();
+
+$fizyUrl='https://itunes.apple.com/tr/rss/customerreviews/id='.$appIosID.'/sortBy=mostRecent/json';
+$fizyGet = file_get_contents($fizyUrl);
+$fizyJson=json_decode($fizyGet);
+//$fizyImageURL=$fizyJson->results[0]->artworkUrl512;
+//echo $$fizyGet;
+
+echo "<h2>".$appName."</h2>";
+for ($x = 1; $x <= 5; $x++) {
+
+$id=$fizyJson->feed->entry[$x]->id->label;
+$author=$fizyJson->feed->entry[$x]->author->name->label;
+$comment=$fizyJson->feed->entry[$x]->content->label;
+$title=$fizyJson->feed->entry[$x]->title->label;
+$ratingPlaceholder='im:rating';
+$rating=$fizyJson->feed->entry[$x]->$ratingPlaceholder->label;
+//$rating='soon...';
+
+echo "									<section class=\"box feature\">\n"; 
+echo "<p>\n"; 
+echo "								<h4>".$author." </br>".$title."</h4>\n"; 
+echo "								<p1>".$comment."</p1>\n"; 
+echo "								</br><p1><b>verdiği puan: ".$rating."</p1></b>\n";
+echo "</p></br>\n"; 
+echo "								</section>\n"; 
+
+
+		}
+	}
+}
+
+
 function getAllApps(){
 $servername='46.101.113.44';
 $username='appony'; 

@@ -100,18 +100,18 @@ getStoreTrends($appName);
 echo "					</div>\n"; 
 echo "				</div>\n"; 
 
-echo "</br></br></br>\n"; 
+echo "</br></br>\n"; 
 
+
+
+
+
+
+echo "</br></br></br>\n"; 
 
 getIosReviews($appName);
 
 
-echo "			<!-- Graph Android-->\n"; 
-echo "				<div id=\"banner-wrapper\">\n"; 
-echo "					<div id=\"banner\" class=\"box container\">\n"; 
-//getAndroidAllTrend();
-echo "					</div>\n"; 
-echo "				</div>\n"; 
 
 echo "			<!-- Footer -->\n"; 
 echo "				<div id=\"footer-wrapper\">\n"; 
