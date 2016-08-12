@@ -75,20 +75,27 @@ echo "					<div class=\"container\">\n";
 echo "						<div class=\"row\" name=\"uygulamalar\">\n"; 
 echo "							<div class=\"4u 12u(medium)\">\n"; 
 echo "\n"; 
-echo "								<!-- Box -->\n"; 
+
+echo "								<!-- IMAGES Box -->\n"; 
 										$imageURL=getImageUrl120($appName1);										
 echo 									'<p><center><img src="'.$imageURL.' " ></center></p>';
+echo 									'<p><center>vs</center></p>';											
 										$imageURL2=getImageUrl120($appName2);										
 echo 									'<p><center><img src="'.$imageURL2.' "></center></p>';
 echo "\n"; 
 echo "							</div>\n"; 
+
+
 echo "							<div class=\"8u 12u(medium)\">\n"; 
+
 echo "\n"; 
-echo "								<!-- Box -->\n"; 
+echo "								<!-- DETAILS Box -->\n"; 
 									getBoxDetailsMin($appName1);
 echo "\n"; 
 echo "								<!-- Box -->\n"; 
 									getBoxDetailsMin2($appName2);
+echo "							</section>\n"; 
+
 echo "\n"; 
 echo "							</div>\n"; 
 echo "						</div>\n"; 
@@ -106,10 +113,10 @@ getBenchTrends($appName1,$appName2);
 echo "					</div>\n"; 
 echo "				</div>\n"; 
 
-echo "</br></br></br>\n"; 
+echo "</br>\n"; 
 
-echo "									<section class=\"box feature\">\n"; 
-echo "<h2 style\"color:#00FF00;\"><center>Son 5 App Store Yorumu</center></h2>";
+echo "<section class=\"box feature\">\n"; 
+echo "<h2 style=\"color:#4099FF;\"><center>Son 5 App Store Yorumu</center></h2>";
 echo "</section>";
 
 echo "			<!-- Graph Android-->\n"; 
