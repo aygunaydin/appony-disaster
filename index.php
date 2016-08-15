@@ -28,7 +28,7 @@ echo "					<header id=\"header\" class=\"container\">\n";
 echo "\n"; 
 echo "						<!-- Logo -->\n"; 
 echo "							<div id=\"logo\">\n"; 
-echo "								<h1><a href=\"index.html\">Appony</a></h1>\n"; 
+echo "								<h1><a href=\"index.php\" class=\"icon fa-heartbeat\">Appony</a></h1>\n"; 
 echo "								<span>powered by VAS-MIS</span>\n"; 
 echo "							</div>\n"; 
 echo "\n"; 
