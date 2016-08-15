@@ -81,7 +81,7 @@ echo "							</div>\n";
 echo "						</div>\n"; 
 echo "					</div>\n"; 
 echo "				</div>\n"; 
-echo "\n"; 
+echo "INFO: PRODUCTION TEST\n"; 
 echo "			<!-- Features -->\n"; 
 echo "				<div id=\"features-wrapper\">\n"; 
 echo "					<div class=\"container\">\n"; 
