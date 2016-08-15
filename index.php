@@ -74,7 +74,7 @@ echo "								<p>Turkcell Uygulamaları Store puan/yorum takip aracı</p>\n";
 echo "							</div>\n"; 
 echo "							<div class=\"5u 12u(medium)\">\n"; 
 echo "								<ul>\n"; 
-echo "									<li><a href=\"apps.php\" class=\"button big icon fa-arrow-circle-right\">Uygulamalar</a></li>\n"; 
+echo "									<li><a href=\"apps.php\" class=\"button big icon fa-mobile\">Uygulamalar</a></li>\n"; 
 echo "									<li><a href=\"#content\" class=\"button alt big icon fa-question-circle\">Ne işe yarar</a></li>\n"; 
 echo "								</ul>\n"; 
 echo "							</div>\n"; 
