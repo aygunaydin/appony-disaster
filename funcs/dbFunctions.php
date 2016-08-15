@@ -45,11 +45,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 	} 
 	$sql = "INSERT INTO appony.`android_app_rating_history` (`app_name`, `rater_num`, `rating`) VALUES ('".$appname."', '".$raterCount."', '".$rating."');";
 
-	if ($conn->query($sql) === TRUE) {
-    	echo "</br>INFO: New record created successfully";
+	if ($rating>0) {
+		if ($conn->query($sql) === TRUE) {
+	    	echo "</br>INFO: New record created successfully";
+		} else {
+	    	echo "Error: " . $sql . "<br>" . $conn->error;
+		}
 	} else {
-    	echo "Error: " . $sql . "<br>" . $conn->error;
+	    	echo "Error: Android puani alinamadi";
 	}
+
+
+
 	$conn->close();
 }
 
@@ -909,7 +916,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 		if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "select max(comment_id) maxID from appony.comments a WHERE a.store='ios' and a.appname='".$appName."';";
+			$sql = "select coalesce(max(comment_id),'0') maxID from appony.comments a WHERE a.store='ios' and a.appname='".$appName."';";
 
 		$result = $conn->query($sql);
 
