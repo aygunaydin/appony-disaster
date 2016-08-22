@@ -116,7 +116,7 @@ echo "				</div>\n";
 echo "</br>\n"; 
 
 echo "<section class=\"box feature\">\n"; 
-echo "<h2 style=\"color:#4099FF;\"><center>Son 5 App Store Yorumu</center></h2>";
+echo "<h2 style=\"color:#4099FF;\"><center>Son 15 App Store Yorumu</center></h2>";
 echo "</section>";
 
 echo "			<!-- Graph Android-->\n"; 

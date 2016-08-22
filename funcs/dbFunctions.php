@@ -409,6 +409,182 @@ echo "											<p>".$appName." Apple Store'da <b>".$iosRaterNum." </b> , Googl
 }
 
 
+
+function getIOSlatestRating($appName){
+
+$servername='46.101.113.44';
+$username='appony'; 
+$password='appony1020';
+$dbname='appony';
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT appid,appname FROM app_list where appname='".$appName."'";
+$result = $conn->query($sql);
+
+//echo 'sql: '.$sql;
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+
+//echo "INFO: started";
+$bipURL='http://itunes.apple.com/lookup?id='.$row["appid"].'&country=tr';
+$bipGet= file_get_contents($bipURL);
+$bipJson= json_decode($bipGet);
+//$bipImageURL=$bipJson->results[0]->artworkUrl512;
+$bipRating=$bipJson->results[0]->averageUserRating;
+$bipRaterNum=$bipJson->results[0]->userRatingCount;
+$bipCurrentRating=$bipJson->results[0]->averageUserRatingForCurrentVersion;
+$bipCurrentRaterNum=$bipJson->results[0]->userRatingCountForCurrentVersion;
+$appID=$bipJson->results[0]->trackId;
+//echo "</br>INFO-appID: ".$appID;
+//echo "</br>INFO-appname: ".$row["appname"];
+//echo "</br>INFO-Rating: ".$bipRating;
+//echo "</br>INFO-RaterNumber: ".$bipRaterNum;
+//$return=createRatingRecord($appID,$bipRaterNum,$bipRating);
+//echo "</br>INFO: completed ".$return;
+//echo "</br>-------------------------</br>-------------------------</br>-------------------------</br>-------------------------</br>";
+
+    }
+} else {
+    //echo "0 results";
+}
+
+return $bipCurrentRating;
+
+}
+
+
+function getIOSlatestRaterNum($appName){
+
+$servername='46.101.113.44';
+$username='appony'; 
+$password='appony1020';
+$dbname='appony';
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT appid,appname FROM app_list where appname='".$appName."'";
+$result = $conn->query($sql);
+
+//echo 'sql: '.$sql;
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+
+//echo "INFO: started";
+$bipURL='http://itunes.apple.com/lookup?id='.$row["appid"].'&country=tr';
+$bipGet= file_get_contents($bipURL);
+$bipJson= json_decode($bipGet);
+//$bipImageURL=$bipJson->results[0]->artworkUrl512;
+$bipRating=$bipJson->results[0]->averageUserRating;
+$bipRaterNum=$bipJson->results[0]->userRatingCount;
+$bipCurrentRating=$bipJson->results[0]->averageUserRatingForCurrentVersion;
+$bipCurrentRaterNum=$bipJson->results[0]->userRatingCountForCurrentVersion;
+$appID=$bipJson->results[0]->trackId;
+//echo "</br>INFO-appID: ".$appID;
+//echo "</br>INFO-appname: ".$row["appname"];
+//echo "</br>INFO-Rating: ".$bipRating;
+//echo "</br>INFO-RaterNumber: ".$bipRaterNum;
+//$return=createRatingRecord($appID,$bipRaterNum,$bipRating);
+//echo "</br>INFO: completed ".$return;
+//echo "</br>-------------------------</br>-------------------------</br>-------------------------</br>-------------------------</br>";
+
+    }
+} else {
+    //echo "0 results";
+}
+
+return $bipCurrentRaterNum;
+
+}
+
+
+function getIOSlatestVersion($appName){
+
+$servername='46.101.113.44';
+$username='appony'; 
+$password='appony1020';
+$dbname='appony';
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT appid,appname FROM app_list where appname='".$appName."'";
+$result = $conn->query($sql);
+
+//echo 'sql: '.$sql;
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+
+//echo "INFO: started";
+$bipURL='http://itunes.apple.com/lookup?id='.$row["appid"].'&country=tr';
+$bipGet= file_get_contents($bipURL);
+$bipJson= json_decode($bipGet);
+//$bipImageURL=$bipJson->results[0]->artworkUrl512;
+$bipRating=$bipJson->results[0]->averageUserRating;
+$bipRaterNum=$bipJson->results[0]->userRatingCount;
+$bipCurrentRating=$bipJson->results[0]->averageUserRatingForCurrentVersion;
+$bipCurrentRaterNum=$bipJson->results[0]->userRatingCountForCurrentVersion;
+$version=$bipJson->results[0]->version;
+$appID=$bipJson->results[0]->trackId;
+//echo "</br>INFO-appID: ".$appID;
+//echo "</br>INFO-appname: ".$row["appname"];
+//echo "</br>INFO-Rating: ".$bipRating;
+//echo "</br>INFO-RaterNumber: ".$bipRaterNum;
+//$return=createRatingRecord($appID,$bipRaterNum,$bipRating);
+//echo "</br>INFO: completed ".$return;
+//echo "</br>-------------------------</br>-------------------------</br>-------------------------</br>-------------------------</br>";
+
+    }
+} else {
+    //echo "0 results";
+}
+
+return $version;
+
+}
+
+
+
+function getBoxDetailsLastMin($appName){
+$iosRating=getIOSlatestRating($appName);
+$iosRaterNum=getIOSlatestRaterNum($appName);
+$version=getIOSlatestVersion($appName);
+//$AndroidRating=getAndroidRating($appName);
+//$AndroidRaterNum=getAndroidRaterNum($appName);
+//$ImageURL=getImageUrl($appName);
+
+
+echo "												<p><p><center><a class=\"button2 big icon fa-apple\">".$iosRating."</a>";
+//																			<a class=\"button3 big icon fa-android\">".$AndroidRating."</a>
+echo "																			</p></center> </p>\n"; 
+echo "											<p>".$appName." son sürümü olan <b>".$version."</b> Apple Store'da <b>".$iosRaterNum." </b> kişi tarafından eğerlendirilmiştir.</p>\n"; 
+
+}
+
+
 function getBoxDetailsMin2($appName){
 $iosRating=getIOSRating($appName);
 $iosRaterNum=getIOSRaterNum($appName);
@@ -1042,7 +1218,7 @@ $fizyJson=json_decode($fizyGet);
 //echo $$fizyGet;
 
 echo "<h2>".$appName."</h2>";
-for ($x = 1; $x <= 5; $x++) {
+for ($x = 1; $x <= 15; $x++) {
 
 $id=$fizyJson->feed->entry[$x]->id->label;
 $author=$fizyJson->feed->entry[$x]->author->name->label;

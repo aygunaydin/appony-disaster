@@ -83,6 +83,7 @@ echo "							<div class=\"8u 12u(medium)\">\n";
 echo "\n"; 
 echo "								<!-- Box -->\n"; 
 									getBoxDetailsMin($appName);
+									getBoxDetailsLastMin($appName);
 echo "\n"; 
 echo "							</div>\n"; 
 echo "						</div>\n"; 
