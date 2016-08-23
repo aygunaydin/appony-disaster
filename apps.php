@@ -36,39 +36,15 @@ echo "							</div>\n";
 echo "\n"; 
 echo "						<!-- Nav -->\n"; 
 echo "							<nav id=\"nav\">\n"; 
-echo "								<ul>\n"; 
-echo "									<li class=\"current\"><a href=\"index.php\" class=\"icon fa-home\">  Anasayfa</a></li>\n"; 
-echo "									<li class=\"current\">\n"; 
-echo "										<a href=\"#\" class=\"icon fa-mobile\">  Turkcell Apps</a>\n"; 
-echo "										<ul>\n"; 
-echo "											<li><a href=\"details.php?app=fizy\">Fizy</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=bip\">Bip</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=depo\">Akıllı Depo</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=akademi\">Akademi</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=RBT\">ÇalarkenDinlet</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=hesabim\">Hesabım</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=platinum\">Platinum</a></li>\n"; 
-echo "											<li><a href=\"details.php?app=gnc\">Gnctrkcll</a></li>\n"; 
-echo "										</ul>\n"; 
-echo "									</li>\n";
-echo "									<li class=\"current\">\n"; 
-echo "										<a href=\"#\" class=\"icon fa-balance-scale\">  Benchmarking</a>\n"; 
-echo "										<ul>\n"; 
-echo "											<li><a href=\"bench.php?app1=fizy&app2=spotify\" class=\"icon fa-spotify\"> Fizy-Spotify</a></li>\n"; 
-echo "											<li><a href=\"bench.php?app1=depo&app2=dropbox\" class=\"icon fa-dropbox\"> Depo-Dropbox</a></li>\n"; 
-echo "											<li><a href=\"bench.php?app1=bip&app2=whatsapp\" class=\"icon fa-whatsapp\"> bip-Whatsapp</a></li>\n"; 
-echo "											<li><a href=\"bench.php?app1=hesabim&app2=yanimda\" class=\"icon fa-mobile\"> Hesabım-Yanımda</a></li>\n"; 
+								//Aygun: getTopMenu() returns navigation menu items
+								getTopMenu();
 
-echo "										</ul>\n"; 
-echo "									</li>\n";  
-echo "									\n"; 
-echo "								</ul>\n"; 
 echo "							</nav>\n"; 
 echo "\n"; 
 echo "					</header>\n"; 
 echo "				</div>\n"; 
 echo "\n"; 
-echo '<center><h2>Appony\'de kayıtlı tüm uygulamalar</h2></center>';
+echo '<center><p><h2>Appony\'de kayıtlı tüm uygulamalar</h2></p><p>Turkcell uygulamaları puan sırasına göre dizilmiştir, ardından diğer uygulamalar puanlarına göre sıralanmıştır.</p></center>';
 getAllApps();
 
 
