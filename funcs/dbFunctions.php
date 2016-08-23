@@ -854,7 +854,7 @@ $fizyJson=json_decode($fizyGet);
 
 $maxID=getMaxIosCommentID($appName);
 
-for ($x = 1; $x <= 49; $x++) {
+for ($x = 50; $x >= 1; $x--) {
 
 $commentid=$fizyJson->feed->entry[$x]->id->label;
 $author=$fizyJson->feed->entry[$x]->author->name->label;
@@ -867,15 +867,10 @@ echo "</br>INFO: recordIosReviews MAX Comment ID from DB: ".$maxID;
 echo "</br>INFO: recordIosReviews Comment ID from Store: ".$commentid;
 echo "</br>INFO: recordIosReviews App Name: ".$appName;
 echo "</br>INFO: recordIosReviews Author: ".$author;
-echo "</br>---------------------------------------------";
 		if ($maxID<$commentid) {
-		insertStoreComment('ios',$commentid,$author,$title,$comment,$appName,$rating);
-echo "</br>INFO: recording on DB, counter: ".$x ;
-echo "</br>INFO: to db app : ".$appName;
-echo "</br>INFO: to db yorum : ".$comment;
-echo "</br>INFO: to db yazar : ".$author;
-echo "</br>INFO: to db baslik : ".$title;
-echo "</br>INFO: to db ID : ".$commentid;
+		insertStoreComment('ios',$commentid,$author,$title,$comment,$appName,$rating);				
+    	echo "</br>INFO DB: recording on DB, counter: ".$x ;
+
 
 		}
 
@@ -1124,9 +1119,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 	$sql = "INSERT INTO appony.`comments` (`store`, `comment_id`, `user`,`title`,`comment`,`appname`,`rating`) VALUES ('".$store."', '".$id."', '".$user."','".$title."','".$comment."','".$appName."','".$rating."');";
 
 	if ($conn->query($sql) === TRUE) {
-    	echo "</br>INFO: New record created successfully";
+    			echo "</br>INFO DB: New record created successfully";
+				echo "</br>INFO DB: to db app : ".$appName;
+				echo "</br>INFO DB: to db yorum : ".$comment;
+				echo "</br>INFO DB: to db yazar : ".$user;
+				echo "</br>INFO DB: to db baslik : ".$title;
+				echo "</br>INFO DB: to db ID : ".$id;
+				echo "</br>---------------------------------------------";
+
 	} else {
-    	echo "Error: " . $sql . "<br>" . $conn->error;
+    	echo "</br>INFO DB: Error: " . $sql . "<br>" . $conn->error;
 	}
 	$conn->close();
 
